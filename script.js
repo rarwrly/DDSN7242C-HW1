@@ -40,13 +40,13 @@ const result =document.querySelector(".result");
 
 function displayCities(cities){
     const nameCities = cities.map(function (city){
-        return `<div>${city}</div>`;
+        return `<div> City Name: ${city.name} Pop.:${city.population} Point of Intrest: ${city.landmark}</div>`;
     });
     result.innerHTML += nameCities.join("");
 }
 
-const cities =["Philadelphia","New York","Chicago"]
-/*const cities = [
+//const cities =["Philadelphia","New York","Chicago"]
+const cities = [
 
   { name: "Houston", population: 2099451, landmark: "NASA Space Center" },
 
@@ -58,6 +58,6 @@ const cities =["Philadelphia","New York","Chicago"]
 
   { name: "Philadelphia", population: 1526006, landmark: "Independence Hall" },
 
-];*/
+];
 
 displayCities(cities);

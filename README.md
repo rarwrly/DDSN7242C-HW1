@@ -29,6 +29,15 @@ Ungraded Stretch Goals:
 
 1. Create a dropdown using the select element. The dropdown will have two options: name and landmark. The selected option will change how the list is being filtered. For instance, if the landmark option is chosen the search bar will filter using the text in landmark instead of name.
 
-2. Use the sort() function to sort the cities by population on load. Do not manually shift the objects within the array.
+[x]2. Use the sort() function to sort the cities by population on load. Do not manually shift the objects within the array.
 
 3. Create a button that, when clicked, changes the list from sorted ascending by population to sorted descending by population, and vice-versa.
+    Ascending order:
+        cities.sort((x, y)=>{
+        return x.population - y.population;
+    });
+    Decending order:
+        cities.sort((x, y)=>{
+        return y.population - x.population;
+    });
+    

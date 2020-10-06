@@ -12,9 +12,9 @@ https://www.javascripttutorial.net/javascript-array-filter/
 
 Grading criteria:
 
-1. Use the filter() function to complete this assignment.
+[X]1. Use the filter() function to complete this assignment.
 
-2. There should be at least two functions. One should populate the page when the page loads. The other should filter when the user types into the search bar.
+[x]2. There should be at least two functions. One should populate the page when the page loads. The other should filter when the user types into the search bar.
 
 3. Use only ES6+ techniques if needed: template strings (`${}`), arrow functions, forEach(), etc.
 
@@ -62,11 +62,12 @@ displayCities(cities);
 
 
 document.getElementById("submitBtn").addEventListener("click", displaySearch);
-const searchVal = document.getElementById("searchValue").value;
+
 
 function displaySearch(){
-    console.log(searchVal)
-    const searchResults = cities.filter (city => city.population  > searchVal);
-    console.log(searchResults)
-
+    result.innerHTML = "";
+    const searchVal = document.getElementById("searchValue").value;
+    const searchResults = cities.filter (city => city.name.toUpperCase()  == searchVal.toUpperCase());
+    displayCities(searchResults)
+    
 }

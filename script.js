@@ -6,7 +6,7 @@ Create a search bar that filters a list of cities by name.
 
 https://www.javascripttutorial.net/javascript-array-filter/
 
-1. Display a page with the cities below, their population, and a famous landmark. Use javascript to populate the page.
+[X]1. Display a page with the cities below, their population, and a famous landmark. Use javascript to populate the page.
 
 2. Create a search bar using the input tag. When a user types into the search bar only the cities where the search characters overlap should be displayed on the page. Make the search bar case-insensitive. For example: If a user types in 'hou' the page should only show Houston.
 
@@ -34,8 +34,6 @@ Ungraded Stretch Goals:
 
 */
 
-
-
 const result =document.querySelector(".result");
 
 function displayCities(cities){
@@ -45,7 +43,6 @@ function displayCities(cities){
     result.innerHTML += nameCities.join("");
 }
 
-//const cities =["Philadelphia","New York","Chicago"]
 const cities = [
 
   { name: "Houston", population: 2099451, landmark: "NASA Space Center" },
@@ -61,3 +58,15 @@ const cities = [
 ];
 
 displayCities(cities);
+
+
+
+document.getElementById("submitBtn").addEventListener("click", displaySearch);
+const searchVal = document.getElementById("searchValue").value;
+
+function displaySearch(){
+    console.log(searchVal)
+    const searchResults = cities.filter (city => city.population  > searchVal);
+    console.log(searchResults)
+
+}

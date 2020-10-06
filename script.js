@@ -58,6 +58,8 @@ const cities = [
     { name: "Philadelphia", population: 1526006, landmark: "Independence Hall" },
 
     {name: "New Brunswick", population:0, landmark: "Fat Sandwich Trucks"},
+    
+    {name: "Los Alamos", population: 45000, landmark: "Los Alamos National Laboratory"},
 
 ];
 

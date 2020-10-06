@@ -1,5 +1,3 @@
-
-
 /*
 
 Create a search bar that filters a list of cities by name.
@@ -8,17 +6,22 @@ https://www.javascripttutorial.net/javascript-array-filter/
 
 [X]1. Display a page with the cities below, their population, and a famous landmark. Use javascript to populate the page.
 
-2. Create a search bar using the input tag. When a user types into the search bar only the cities where the search characters overlap should be displayed on the page. Make the search bar case-insensitive. For example: If a user types in 'hou' the page should only show Houston.
+2. 
+[x]a search bar using the input tag.
+[x]When a user types into the search bar only the cities where the search characters overlap should be displayed on the page. 
+[x]Make the search bar case-insensitive. For example: If a user types in 'hou' the page should only show Houston.
 
 Grading criteria:
 
 [X]1. Use the filter() function to complete this assignment.
 
-[x]2. There should be at least two functions. One should populate the page when the page loads. The other should filter when the user types into the search bar.
+[x]2. There should be at least two functions.
+    [x]One should populate the page when the page loads. 
+    [x ]The other should filter when the user types into the search bar.
 
-3. Use only ES6+ techniques if needed: template strings (`${}`), arrow functions, forEach(), etc.
+3.[x]Use only ES6+ techniques if needed: template strings (`${}`), arrow functions, forEach(), etc.
 
-4. Use GitHub and make at least 5 commits with meaningful commit messages in the present tense. For example: "Create filter function."
+4.[x]Use GitHub and make at least 5 commits with meaningful commit messages in the present tense. For example: "Create filter function."
 
 5. Do not have any extraneous comments beyond explanations of code (if needed) in your final result. Do not have any console.logs, in comments or otherwise.
 
@@ -35,39 +38,38 @@ Ungraded Stretch Goals:
 */
 
 const result =document.querySelector(".result");
+const input =document.querySelector('#searchValue');
 
 function displayCities(cities){
-    const nameCities = cities.map(function (city){
-        return `<div> City Name: ${city.name} Pop.:${city.population} Point of Intrest: ${city.landmark}</div>`;
-    });
+    const nameCities = cities.map(city =>`<div> City Name: ${city.name} Pop.:${city.population} Point of Intrest: ${city.landmark}</div>`);
     result.innerHTML += nameCities.join("");
 }
 
 const cities = [
 
-  { name: "Houston", population: 2099451, landmark: "NASA Space Center" },
+    { name: "Houston", population: 2099451, landmark: "NASA Space Center" },
 
-  { name: "Los Angeles", population: 3792621, landmark: "Hollywood Sign" },
+    { name: "Los Angeles", population: 3792621, landmark: "Hollywood Sign" },
 
-  { name: "New York", population: 8175133, landmark: "Statue of Liberty" },
+    { name: "New York", population: 8175133, landmark: "Statue of Liberty" },
 
-  { name: "Chicago", population: 2695598, landmark: "Willis Tower" },
+    { name: "Chicago", population: 2695598, landmark: "Willis Tower" },
 
-  { name: "Philadelphia", population: 1526006, landmark: "Independence Hall" },
+    { name: "Philadelphia", population: 1526006, landmark: "Independence Hall" },
+
+    {name: "New Brunswick", population:0, landmark: "Fat Sandwich Trucks"},
 
 ];
 
 displayCities(cities);
 
 
+input.addEventListener('input',displaySearch);
 
-document.getElementById("submitBtn").addEventListener("click", displaySearch);
-
-
-function displaySearch(){
+function displaySearch(e){
     result.innerHTML = "";
-    const searchVal = document.getElementById("searchValue").value;
-    const searchResults = cities.filter (city => city.name.toUpperCase()  == searchVal.toUpperCase());
-    displayCities(searchResults)
+    const searchVal = e.target.value;
+    const searchResults = cities.filter (city => city.name.toUpperCase().includes(searchVal.toUpperCase()));
     
+    displayCities(searchResults)
 }
